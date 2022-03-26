@@ -66,3 +66,43 @@ function game(){
         changeGameStatud(mario);
     }
 }
+funcction startGame(){
+    GameStatus="start";
+    document.getElementById("status").innerHTML="Game Is Loading";
+}
+function changeGameStatud(character){
+    if(noseX !="" && gameConfig.status==="start" && GameStatus=="start"){
+        document.getElementById("status").innerHTML="Game Is Loaded";
+        world_start.play();
+    initializeCharacterStatus(mario)
+    gameConfig.status="play"}
+    if(gameConfig.status==="gameover" && keyDown(control.revive)){
+        gameConfig.status="start"
+    }
+}
+function instializeInSetup(character){
+    frameRate(120);
+    character.scale=0.35;
+    initializeCharacterStatus(character)
+    bricks.displace(bricks);
+    platforms.displace(platforms);
+    coins.displace(coins);
+    coins.collide(pipes);
+    coins.displace(bricks);
+
+clouds.forEach(function(element){
+    element.scale=random(1,2);
+})
+}
+function initializeCharacterStatus(character){
+    character.scale=0.35;
+    character["killing"]=0;
+    charactercter["kills"]=0;
+    character["live"]=true;
+    character["livenumber"]=gameConfig.initialLifes;
+    charcter["status"]='live';
+    character["coins"]=0;
+    character["dying"]=0;
+    character.position.x=gameConfig.startingPointX
+    character.position.y=gameConfig.startingPointY
+}
